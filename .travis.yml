@@ -1,0 +1,40 @@
+language: node_js
+node_js:
+  - node
+before_install:
+  - npm i
+stages:
+  - build-linux
+  - build-osx
+  - build-windows
+jobs:
+  include:
+    - stage: build-linux
+      os: linux
+      dist: trusty
+    - stage: build-linux
+      os: linux
+      dist: focal
+    - stage: build-osx
+      os: osx
+      osx_image: xcode12
+    - stage: build-osx
+      os: osx
+      osx_image: xcode7.1
+    - stage: build-windows
+      os: windows
+      
+notifications:
+  email:
+    recipients:
+      - ralexdrum@gmail.com
+    on_success: never
+    on_failure: always
+# after_success:
+#         - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+#         - chmod +x send.sh
+#         - ./send.sh success $WEBHOOK_URL
+# after_failure:
+#         - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+#         - chmod +x send.sh
+#         - ./send.sh failure $WEBHOOK_URL
