@@ -31,7 +31,7 @@ module.exports = class extends Command {
 			const stop = process.hrtime(start);
 			const response = [
 				`**Output:** \`\`\`js\n${this.clean(inspect(evaled, { depth: 0 }))}\n\`\`\``,
-				`**Type:** \`\`\`ts\n${new Type(evaled).is}\n\`\`\``,
+				`**Type:** \`\`\`ts\n${new Type(evaled).toString()}\n\`\`\``,
 				`**Time Taken:** \`\`\`${(((stop[0] * 1e9) + stop[1])) / 1e6}ms\`\`\``
 			]
 			const res = response.join('\n')
