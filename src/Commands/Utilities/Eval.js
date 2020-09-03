@@ -8,7 +8,7 @@ module.exports = class extends Command {
 	constructor(...args) {
 		super(...args, {
 			aliases: ['ev'],
-			description: 'Displays information about the bot.',
+			description: 'Evals a chunk of Code.',
             category: 'Developer',
             ownerOnly: true
 		});
